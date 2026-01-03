@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dayflow HRMS Design System
+   Enterprise-grade, warm neutral palette with muted accents
+   Inspired by Odoo's clarity with modern SaaS polish
+*/
+
+@layer base {
+  :root {
+    /* Core Backgrounds */
+    --background: 210 20% 98%; /* Soft Off-White #F8FAFC */
+    --foreground: 210 24% 16%; /* Charcoal Black #1F2933 */
+
+    /* Card & Surface */
+    --card: 0 0% 100%;
+    --card-foreground: 210 24% 16%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 24% 16%;
+
+    /* Primary - Charcoal */
+    --primary: 210 24% 16%;
+    --primary-foreground: 210 20% 98%;
+
+    /* Secondary - Slate Gray */
+    --secondary: 220 9% 46%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 210 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent - Olive Green */
+    --accent: 118 17% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success - Olive Green */
+    --success: 118 17% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Muted Amber */
+    --warning: 30 52% 64%;
+    --warning-foreground: 210 24% 16%;
+
+    /* Destructive - Brick Red */
+    --destructive: 25 89% 37%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Pending - Muted Amber */
+    --pending: 30 52% 64%;
+    --pending-foreground: 210 24% 16%;
+
+    /* Borders & Inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 118 17% 42%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Dark Charcoal */
+    --sidebar-background: 210 24% 16%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 118 17% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 22%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 210 20% 24%;
+    --sidebar-ring: 118 17% 42%;
+    --sidebar-muted: 210 20% 70%;
+
+    /* Custom tokens */
+    --hover-bg: 210 14% 96%;
+    --table-header: 210 14% 96%;
+    --badge-success-bg: 118 17% 90%;
+    --badge-warning-bg: 30 52% 90%;
+    --badge-error-bg: 25 89% 92%;
+  }
+
+  .dark {
+    --background: 210 24% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 210 24% 13%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 210 24% 13%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 210 20% 95%;
+    --primary-foreground: 210 24% 16%;
+
+    --secondary: 210 20% 25%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 210 20% 20%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 118 17% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 118 17% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 30 52% 64%;
+    --warning-foreground: 210 24% 16%;
+
+    --destructive: 25 89% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 22%;
+    --input: 210 20% 22%;
+    --ring: 118 17% 42%;
+
+    --sidebar-background: 210 24% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 118 17% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 15%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 210 20% 18%;
+    --sidebar-ring: 118 17% 42%;
+    --sidebar-muted: 210 20% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  /* Card Styles */
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .card-stat {
+    @apply bg-card rounded-xl border border-border p-6 hover:shadow-md transition-all duration-200;
+  }
+
+  /* Table Styles */
+  .table-header {
+    @apply bg-muted/50 text-muted-foreground font-medium text-sm uppercase tracking-wide;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-muted/30 transition-colors duration-150;
+  }
+
+  /* Sidebar Styles */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-all duration-150;
+  }
+
+  .sidebar-link-active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground font-medium;
+  }
+
+  /* Badge Variants */
+  .badge-success {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .badge-warning {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .badge-error {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+
+  .badge-neutral {
+    @apply bg-muted text-muted-foreground border-border;
+  }
+
+  /* Button Hover Effects */
+  .btn-scale {
+    @apply transition-all duration-150 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Input Focus Styles */
+  .input-focus {
+    @apply focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-150;
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-muted-foreground/30;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
